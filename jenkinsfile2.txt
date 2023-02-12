@@ -1,7 +1,7 @@
 pipeline {
    environment {
      git_url = "https://github.com/kittu-79/-MyRepo.git"
-     git_branch = "master"
+     git_branch = "main"
    }
 
  agent {label 'test'}
