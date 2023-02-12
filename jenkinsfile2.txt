@@ -1,6 +1,6 @@
 pipeline {
    environment {
-     git_url = "https://github.com/salilkul/MyRepo.git"
+     git_url = "https://github.com/kittu-79/-MyRepo.git"
      git_branch = "master"
    }
 
@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Pull Source') {
       steps {
-        git credentialsId: 'bc5c2b95-cf0b-46ad-99b6-64c6d2942669', branch: "${git_branch}", url: "${git_url}"
+        git credentialsId: '79a46946-9489-42fc-9d09-b9196859ab4a', branch: "${git_branch}", url: "${git_url}"
       }
      }
     
