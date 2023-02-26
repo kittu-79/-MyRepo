@@ -1,35 +1,38 @@
 apiVersion: apps/v1
-kind: Deployment 
+kind: Deployment
 metadata:
-  name: demo-image
+  name: demo-image-deployment
+  labels:
+    app: demo-image
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: demo-image
-  replicas: 2 
   template:
     metadata:
       labels:
         app: demo-image
     spec:
       containers:
-        - name: demo-image
-          image: kittu1985/demo-image
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 8080 
-
-
+      - name: nodeserver
+        image: kittu1985/demo-image
+        ports:
+        - containerPort: 8080
+        
+        
 ---
 
-apiVersion: v1 # Kubernetes API version
+apiVersion: v1
 kind: Service
-metadata: 
-  name: demo-image
+metadata:
+  name: demo-image-service
+spec:
   selector:
-    app: demo-image
+    app: demo-image 
+  type: LoadBalancer
   ports:
-    - protocol: "TCP"
-      port: 8080 # The port that the service is running on in the cluster
-      targetPort: 8080 # The port exposed by the service
-  type: NodePort # type of the service.
+  - protocol: TCP
+    port: 8080
+    targetPort: 3000
+    nodePort: 31110
