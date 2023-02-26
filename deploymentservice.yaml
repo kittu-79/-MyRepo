@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: spring-boot-k8s
+        app: demo-image
     spec:
       containers:
         - name: demo-image
