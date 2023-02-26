@@ -15,7 +15,7 @@ spec:
         app: demo-image
     spec:
       containers:
-      - name: nodeserver
+      - name: demo
         image: kittu1985/demo-image:latest
         imagePullPolicy: Always
         ports:
