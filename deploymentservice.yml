@@ -17,6 +17,7 @@ spec:
       containers:
       - name: nodeserver
         image: kittu1985/demo-image
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         
